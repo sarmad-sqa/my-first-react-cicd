@@ -1,8 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('check if submit button is present', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  // "Submit" button dhoond raha hai
+  const buttonElement = screen.getByText(/submit/i); 
+  expect(buttonElement).toBeInTheDocument();
 });
