@@ -32,5 +32,3 @@ jobs:
       with:
           folder: build # Ye wahi folder hai jo Build step ne banaya
           branch: gh-pages
-          
-          branch: gh-pages # Is branch mein saara live maal jayega
