@@ -56,7 +56,7 @@ function App() {
           onChange={handleChange}
           required
         />
-        <button type="submit" style={{ cursor: 'pointer', padding: '10px', background: '#007bff', color: 'white', border: 'none', borderRadius: '4px' }}>
+        <button type="submit now" style={{ cursor: 'pointer', padding: '10px', background: '#007bff', color: 'white', border: 'none', borderRadius: '4px' }}>
           Submit
         </button>
       </form>
