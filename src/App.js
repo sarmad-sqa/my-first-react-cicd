@@ -21,7 +21,7 @@ function App() {
     setTimeout(() => setSubmitted(false), 3000);
   };
 
-  return ( bhai_ye_to_error_hai;
+  return ( 
     <div style={{ padding: '20px', fontFamily: 'Arial' }}>
       <h2>Sign Up Form</h2>
       
