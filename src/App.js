@@ -26,7 +26,7 @@ function App() {
 
   return ( 
     <div style={{ padding: '20px', fontFamily: 'Arial' }}>
-      <h2>SARMAD QA FORM TEST</h2>
+      <h2>Conflict Test</h2>
       
       {submitted && (
         <div style={{ color: 'green', marginBottom: '10px', fontWeight: 'bold' }}>
