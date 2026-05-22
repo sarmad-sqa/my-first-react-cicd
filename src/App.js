@@ -1,205 +1,53 @@
 import React, { useState } from 'react';
 
 function App() {
-  const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    password: ''
-  });
+  // 1. States setup
+  const [formData, setFormData] = useState({ name: '', email: '', password: '' });
+  const [submitted, setSubmitted] = useState(false);
 
-  const [showPassword, setShowPassword] = useState(false);
-
+  // 2. Input change handler
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
+    setFormData({ ...formData, [name]: value });
   };
 
+  // 3. Submit handler
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form Submitted:', formData);
-    alert('Signup Successful!');
+    console.log("Form Data:", formData);
+    setSubmitted(true);
+    setTimeout(() => setSubmitted(false), 3000);
   };
 
+  // --- CLEAR FORM FUNCTION ---
   const handleClear = () => {
-    setFormData({
-      username: '',
-      email: '',
-      password: ''
-    });
+    setFormData({ name: '', email: '', password: '' });
   };
 
-<<<<<<< HEAD
   return ( 
     <div style={{ padding: '20px', fontFamily: 'Arial' }}>
-      <h2>Join Our Community</h2>
+      <h2>Conflict Testgit</h2>
       
       {submitted && (
         <div style={{ color: 'green', marginBottom: '10px', fontWeight: 'bold' }}>
           Success! Form submitted successfully.
         </div>
       )}
-=======
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
->>>>>>> main
 
-  // --- STYLING OBJECTS (In-line CSS taaki layout kharab na ho) ---
-  const styles = {
-    formContainer: {
-      maxWidth: '400px',
-      margin: '50px auto',
-      padding: '30px',
-      borderRadius: '8px',
-      boxShadow: '0 4px 15px rgba(0,0,0,0.1)',
-      backgroundColor: '#fff',
-      fontFamily: 'Arial, sans-serif'
-    },
-    heading: {
-      textAlign: 'center',
-      marginBottom: '25px',
-      color: '#333'
-    },
-    formGroup: {
-      marginBottom: '20px',
-      display: 'flex',
-      flexDirection: 'column'
-    },
-    label: {
-      marginBottom: '8px',
-      fontWeight: 'bold',
-      color: '#555',
-      fontSize: '14px'
-    },
-    input: {
-      padding: '10px',
-      borderRadius: '5px',
-      border: '1px solid #ccc',
-      fontSize: '16px',
-      outline: 'none',
-      width: '100%',
-      boxSizing: 'border-box'
-    },
-    passwordWrapper: {
-      position: 'relative',
-      display: 'flex',
-      alignItems: 'center',
-      width: '100%'
-    },
-    passwordInput: {
-      padding: '10px',
-      paddingRight: '40px', // Icon ke liye right side par space
-      borderRadius: '5px',
-      border: '1px solid #ccc',
-      fontSize: '16px',
-      outline: 'none',
-      width: '100%',
-      boxSizing: 'border-box'
-    },
-    eyeButton: {
-      position: 'absolute',
-      right: '12px',
-      background: 'none',
-      border: 'none',
-      cursor: 'pointer',
-      fontSize: '18px',
-      padding: '0',
-      display: 'flex',
-      alignItems: 'center',
-      userSelect: 'none'
-    },
-    buttonGroup: {
-      display: 'flex',
-      gap: '15px',
-      marginTop: '25px'
-    },
-    submitBtn: {
-      flex: 1,
-      padding: '12px',
-      backgroundColor: '#007bff', // Proper Blue Color
-      color: 'white',
-      border: 'none',
-      borderRadius: '5px',
-      fontSize: '16px',
-      fontWeight: 'bold',
-      cursor: 'pointer',
-      transition: 'background-color 0.2s'
-    },
-    clearBtn: {
-      flex: 1,
-      padding: '12px',
-      backgroundColor: '#5a6268', // Proper Dark Grey Color
-      color: 'white',
-      border: 'none',
-      borderRadius: '5px',
-      fontSize: '16px',
-      fontWeight: 'bold',
-      cursor: 'pointer',
-      transition: 'background-color 0.2s'
-    }
-  };
-
-  return (
-    <div style={styles.formContainer}>
-      <h2 style={styles.heading}>Signup Form</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', width: '300px', gap: '10px' }}>
+        <input type="text" name="name" placeholder="Enter Name" value={formData.name} onChange={handleChange} required />
+        <input type="email" name="email" placeholder="Enter Email" value={formData.email} onChange={handleChange} required />
+        <input type="password" name="password" placeholder="Enter Password" value={formData.password} onChange={handleChange} required />
         
-        <div style={styles.formGroup}>
-          <label style={styles.label}>Username:</label>
-          <input
-            type="text"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-            style={styles.input}
-            required
-          />
-        </div>
+        {/* Submit Button */}
+        <button type="submit" style={{ cursor: 'pointer', padding: '10px', background: '#007bff', color: 'white', border: 'none', borderRadius: '4px' }}>
+          Submit
+        </button>
 
-        <div style={styles.formGroup}>
-          <label style={styles.label}>Email:</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            style={styles.input}
-            required
-          />
-        </div>
-
-        <div style={styles.formGroup}>
-          <label style={styles.label}>Password:</label>
-          <div style={styles.passwordWrapper}>
-            <input
-              type={showPassword ? 'text' : 'password'}
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              style={styles.passwordInput}
-              required
-            />
-            <button
-              type="button"
-              onClick={togglePasswordVisibility}
-              style={styles.eyeButton}
-            >
-              {showPassword ? '👁️‍🗨️' : '👁️'}
-            </button>
-          </div>
-        </div>
-
-        <div style={styles.buttonGroup}>
-          <button type="submit" style={styles.submitBtn}>
-            Submit
-          </button>
-          <button type="button" onClick={handleClear} style={styles.clearBtn}>
-            Clear Form
-          </button>
-        </div>
+        {/* --- CLEAR FORM BUTTON --- */}
+        <button type="button" onClick={handleClear} style={{ cursor: 'pointer', padding: '10px', background: '#6c757d', color: 'white', border: 'none', borderRadius: '4px' }}>
+          Clear Form
+        </button>
 
       </form>
     </div>
