@@ -187,6 +187,9 @@ function App() {
           <button type="button" onClick={handleClear} style={styles.clearBtn}>
             Clear Form
           </button>
+          <button type="button" style={{ cursor: 'pointer', padding: '10px', background: '#dc3545', color: 'white', border: 'none', borderRadius: '4px' }}>
+  Reset Form
+</button>
         </div>
 
       </form>
