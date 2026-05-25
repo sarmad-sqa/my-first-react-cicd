@@ -187,6 +187,10 @@ function App() {
           <button type="button" onClick={handleClear} style={styles.clearBtn}>
             Clear Form
           </button>
+          <div style={{ marginTop: '10px' }}>
+  <input type="checkbox" id="subscribe" name="subscribe" style={{ marginRight: '5px' }} />
+  <label htmlFor="subscribe">Subscribe to our newsletter</label>
+</div>
         </div>
 
       </form>
