@@ -190,6 +190,10 @@ function App() {
           <button type="button" style={{ cursor: 'pointer', padding: '10px', background: '#dc3545', color: 'white', border: 'none', borderRadius: '4px' }}>
   Reset Form
 </button>
+          <div style={{ marginTop: '10px' }}>
+  <input type="checkbox" id="subscribe" name="subscribe" style={{ marginRight: '5px' }} />
+  <label htmlFor="subscribe">Subscribe to our newsletter</label>
+</div>
         </div>
 
       </form>
