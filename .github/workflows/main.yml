@@ -13,6 +13,8 @@ permissions:
 jobs:
   build_and_test:
     runs-on: ubuntu-latest
+    
+    # Hum ne env block ko yahan set kar diya hai
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
