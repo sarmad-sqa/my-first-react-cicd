@@ -127,6 +127,15 @@ function App() {
       fontWeight: 'bold',
       cursor: 'pointer',
       transition: 'background-color 0.2s'
+    },
+    // Naya Chota Style dev1 Ke Liye
+    dev1SupportText: {
+      marginTop: '25px',
+      textAlign: 'center',
+      fontSize: '13px',
+      color: '#666',
+      borderTop: '1px solid #eee',
+      paddingTop: '15px'
     }
   };
 
@@ -197,12 +206,17 @@ function App() {
         </div>
 
       </form>
-
       {/* --- DEV2 KA NEW CODE (WARING TEXT) SHURU --- */}
       <p style={{ marginTop: '25px', textAlign: 'center', color: 'red', fontWeight: 'bold', fontSize: '14px', borderTop: '1px solid #eee', paddingTop: '15px' }}>
         Warning: Do not share your OTP with anyone!
       </p>
       {/* --- DEV2 KA NEW CODE KHATAM --- */}
+
+      {/* --- DEV1 KA NEW CODE SHURU --- */}
+      <p style={styles.dev1SupportText}>
+        Need help? Contact support@pixelbyprism.com
+      </p>
+      {/* --- DEV1 KA NEW CODE KHATAM --- */}
 
     </div>
   );
