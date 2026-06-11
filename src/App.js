@@ -35,41 +35,74 @@ function App() {
     setShowPassword(!showPassword);
   };
 
-  // --- STYLING OBJECTS ---
+  // --- NEW, IMPROVED STYLING OBJECTS ---
   const styles = {
+    pageBackground: {
+      minHeight: '100vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      // Elegant deep teal/blue gradient background
+      background: 'linear-gradient(135deg, #104153 0%, #156d81 100%)',
+      fontFamily: "'Poppins', sans-serif" // Clean modern font
+    },
     formContainer: {
-      maxWidth: '400px',
-      margin: '50px auto',
-      padding: '30px',
-      borderRadius: '8px',
-      boxShadow: '0 4px 15px rgba(0,0,0,0.1)',
-      backgroundColor: '#fff',
-      fontFamily: 'Arial, sans-serif'
+      maxWidth: '420px',
+      width: '100%',
+      padding: '40px',
+      borderRadius: '16px', // Softer corners
+      boxShadow: '0 10px 30px rgba(0,0,0,0.3)', // deeper, softer shadow
+      backgroundColor: 'rgba(255, 255, 255, 0.95)', // Subtle transparency
+      boxSizing: 'border-box'
+    },
+    logoContainer: {
+      textAlign: 'center',
+      marginBottom: '30px'
+    },
+    logo: {
+      width: '60px', // Placeholder logo size
+      height: '60px',
+      backgroundColor: '#104153',
+      borderRadius: '50%',
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontSize: '24px',
+      color: 'white'
     },
     heading: {
       textAlign: 'center',
-      marginBottom: '25px',
-      color: '#333'
+      marginBottom: '35px',
+      color: '#104153', // Match logo color
+      fontSize: '26px',
+      fontWeight: '600'
     },
     formGroup: {
-      marginBottom: '20px',
+      marginBottom: '25px',
       display: 'flex',
-      flexDirection: 'column'
+      flexDirection: 'column',
+      position: 'relative'
     },
     label: {
-      marginBottom: '8px',
-      fontWeight: 'bold',
-      color: '#555',
-      fontSize: '14px'
+      marginBottom: '10px',
+      fontWeight: '500',
+      color: '#444',
+      fontSize: '15px'
     },
     input: {
-      padding: '10px',
-      borderRadius: '5px',
-      border: '1px solid #ccc',
+      padding: '14px 18px',
+      borderRadius: '10px', // Rounder fields
+      border: '1px solid #ddd',
       fontSize: '16px',
       outline: 'none',
       width: '100%',
-      boxSizing: 'border-box'
+      boxSizing: 'border-box',
+      backgroundColor: '#fdfdfd',
+      transition: 'border-color 0.2s, box-shadow 0.2s'
+    },
+    inputFocus: {
+      borderColor: '#156d81',
+      boxShadow: '0 0 0 3px rgba(21, 109, 129, 0.2)'
     },
     passwordWrapper: {
       position: 'relative',
@@ -78,146 +111,223 @@ function App() {
       width: '100%'
     },
     passwordInput: {
-      padding: '10px',
-      paddingRight: '40px',
-      borderRadius: '5px',
-      border: '1px solid #ccc',
+      padding: '14px 50px 14px 18px', // space for eye icon
+      borderRadius: '10px',
+      border: '1px solid #ddd',
       fontSize: '16px',
       outline: 'none',
       width: '100%',
-      boxSizing: 'border-box'
+      boxSizing: 'border-box',
+      backgroundColor: '#fdfdfd',
+      transition: 'border-color 0.2s, box-shadow 0.2s'
     },
     eyeButton: {
       position: 'absolute',
-      right: '12px',
+      right: '16px',
       background: 'none',
       border: 'none',
       cursor: 'pointer',
-      fontSize: '18px',
+      fontSize: '20px',
       padding: '0',
+      color: '#888', // Subtle icon color
       display: 'flex',
       alignItems: 'center',
       userSelect: 'none'
     },
     buttonGroup: {
       display: 'flex',
+      flexDirection: 'column', // Stack buttons on mobile
       gap: '15px',
-      marginTop: '25px'
+      marginTop: '30px'
+    },
+    buttonRow: {
+      display: 'flex',
+      gap: '15px'
     },
     submitBtn: {
       flex: 1,
-      padding: '12px',
-      backgroundColor: '#007bff',
+      padding: '15px',
+      backgroundColor: '#156d81', // Matching theme
       color: 'white',
       border: 'none',
-      borderRadius: '5px',
+      borderRadius: '10px',
       fontSize: '16px',
-      fontWeight: 'bold',
+      fontWeight: '600',
       cursor: 'pointer',
-      transition: 'background-color 0.2s'
+      transition: 'background-color 0.2s, transform 0.1s',
+      boxShadow: '0 4px 10px rgba(21, 109, 129, 0.3)'
+    },
+    submitBtnHover: {
+      backgroundColor: '#0d5a6c'
     },
     clearBtn: {
       flex: 1,
-      padding: '12px',
-      backgroundColor: '#5a6268',
+      padding: '15px',
+      backgroundColor: '#f1f1f1',
+      color: '#555',
+      border: 'none',
+      borderRadius: '10px',
+      fontSize: '16px',
+      fontWeight: '600',
+      cursor: 'pointer',
+      transition: 'background-color 0.2s, transform 0.1s'
+    },
+    clearBtnHover: {
+      backgroundColor: '#e5e5e5'
+    },
+    resetBtn: {
+      padding: '15px',
+      backgroundColor: '#e74c3c', // Modern red
       color: 'white',
       border: 'none',
-      borderRadius: '5px',
+      borderRadius: '10px',
       fontSize: '16px',
-      fontWeight: 'bold',
+      fontWeight: '600',
       cursor: 'pointer',
-      transition: 'background-color 0.2s'
+      transition: 'background-color 0.2s, transform 0.1s',
+      boxShadow: '0 4px 10px rgba(231, 76, 60, 0.3)'
     },
-    // Naya Chota Style dev1 Ke Liye
+    newsletterGroup: {
+      marginTop: '15px',
+      display: 'flex',
+      alignItems: 'center',
+      color: '#666',
+      fontSize: '14px'
+    },
+    checkbox: {
+      marginRight: '10px',
+      cursor: 'pointer',
+      accentColor: '#156d81' // modern checkbox color
+    },
+    warningText: {
+      marginTop: '30px',
+      textAlign: 'center',
+      color: '#e74c3c',
+      fontWeight: '500',
+      fontSize: '14px',
+      borderTop: '1px solid #eee',
+      paddingTop: '18px'
+    },
     dev1SupportText: {
-      marginTop: '25px',
+      marginTop: '15px',
       textAlign: 'center',
       fontSize: '13px',
-      color: '#666',
-      borderTop: '1px solid #eee',
-      paddingTop: '15px'
+      color: '#888'
     }
   };
 
+  // State to track focus for outline styling
+  const [focusedField, setFocusedField] = useState(null);
+
+  const getInputStyle = (fieldName) => {
+    return focusedField === fieldName
+      ? { ...styles.input, ...styles.inputFocus }
+      : styles.input;
+  };
+
+  const getPasswordInputStyle = () => {
+    return focusedField === 'password'
+      ? { ...styles.passwordInput, ...styles.inputFocus }
+      : styles.passwordInput;
+  };
+
   return (
-    <div style={styles.formContainer}>
-      <h2 style={styles.heading}>Signup Form</h2>
-      <form onSubmit={handleSubmit}>
-        
-        <div style={styles.formGroup}>
-          <label style={styles.label}>Username:</label>
-          <input
-            type="text"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-            style={styles.input}
-            required
-          />
-        </div>
+    <div style={styles.pageBackground}>
+      {/* Add Poppins font link to head */}
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
 
-        <div style={styles.formGroup}>
-          <label style={styles.label}>Email:</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            style={styles.input}
-            required
-          />
+      <div style={styles.formContainer}>
+        <div style={styles.logoContainer}>
+          <div style={styles.logo}>∆</div> {/* Placeholder Logo Icon */}
         </div>
-
-        <div style={styles.formGroup}>
-          <label style={styles.label}>Password:</label>
-          <div style={styles.passwordWrapper}>
+        <h2 style={styles.heading}>Signup Form</h2>
+        <form onSubmit={handleSubmit}>
+          
+          <div style={styles.formGroup}>
+            <label style={styles.label}>Username:</label>
             <input
-              type={showPassword ? 'text' : 'password'}
-              name="password"
-              value={formData.password}
+              type="text"
+              name="username"
+              value={formData.username}
               onChange={handleChange}
-              style={styles.passwordInput}
+              onFocus={() => setFocusedField('username')}
+              onBlur={() => setFocusedField(null)}
+              style={getInputStyle('username')}
               required
+              placeholder="Enter your username" // added placeholders
             />
-            <button
-              type="button"
-              onClick={togglePasswordVisibility}
-              style={styles.eyeButton}
-            >
-              {showPassword ? '👁️‍🗨️' : '👁️'}
+          </div>
+
+          <div style={styles.formGroup}>
+            <label style={styles.label}>Email Address:</label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              onFocus={() => setFocusedField('email')}
+              onBlur={() => setFocusedField(null)}
+              style={getInputStyle('email')}
+              required
+              placeholder="Enter your email address"
+            />
+          </div>
+
+          <div style={styles.formGroup}>
+            <label style={styles.label}>Password:</label>
+            <div style={styles.passwordWrapper}>
+              <input
+                type={showPassword ? 'text' : 'password'}
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                onFocus={() => setFocusedField('password')}
+                onBlur={() => setFocusedField(null)}
+                style={getPasswordInputStyle()}
+                required
+                placeholder="Enter your password"
+              />
+              <button
+                type="button"
+                onClick={togglePasswordVisibility}
+                style={styles.eyeButton}
+              >
+               {showPassword ?'👁️': '👁️‍🗨️' }
+              </button>
+            </div>
+          </div>
+
+          <div style={styles.buttonGroup}>
+            <div style={styles.buttonRow}>
+              <button type="submit" style={styles.submitBtn}>
+                Submit
+              </button>
+              <button type="button" onClick={handleClear} style={styles.clearBtn}>
+                Clear
+              </button>
+            </div>
+            <button type="button" style={styles.resetBtn}>
+              Reset Form
             </button>
           </div>
-        </div>
-
-        <div style={styles.buttonGroup}>
-          <button type="submit" style={styles.submitBtn}>
-            Submit
-          </button>
-          <button type="button" onClick={handleClear} style={styles.clearBtn}>
-            Clear Form
-          </button>
-          <button type="button" style={{ cursor: 'pointer', padding: '10px', background: '#dc3545', color: 'white', border: 'none', borderRadius: '4px' }}>
-            Reset Form
-          </button>
-          <div style={{ marginTop: '10px' }}>
-            <input type="checkbox" id="subscribe" name="subscribe" style={{ marginRight: '5px' }} />
+          <div style={styles.newsletterGroup}>
+            <input type="checkbox" id="subscribe" name="subscribe" style={styles.checkbox} />
             <label htmlFor="subscribe">Subscribe to our newsletter</label>
           </div>
-        </div>
 
-      </form>
-      {/* --- DEV2 KA NEW CODE (WARING TEXT) SHURU --- */}
-      <p style={{ marginTop: '25px', textAlign: 'center', color: 'red', fontWeight: 'bold', fontSize: '14px', borderTop: '1px solid #eee', paddingTop: '15px' }}>
-        Warning: Do not share your OTP with anyone!
-      </p>
-      {/* --- DEV2 KA NEW CODE KHATAM --- */}
+        </form>
 
-      {/* --- DEV1 KA NEW CODE SHURU --- */}
-      <p style={styles.dev1SupportText}>
-        Need help? Contact support@pixelbyprism.com
-      </p>
-      {/* --- DEV1 KA NEW CODE KHATAM --- */}
+        <p style={styles.warningText}>
+          Warning: Do not share your OTP with anyone!
+        </p>
 
+        <p style={styles.dev1SupportText}>
+          Need help? Contact support@pixelbyprism.com
+        </p>
+
+      </div>
     </div>
   );
 }
