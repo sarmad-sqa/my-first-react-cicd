@@ -35,7 +35,7 @@ function App() {
     setShowPassword(!showPassword);
   };
 
-  // --- STYLING OBJECTS (In-line CSS taaki layout kharab na ho) ---
+  // --- STYLING OBJECTS ---
   const styles = {
     formContainer: {
       maxWidth: '400px',
@@ -79,7 +79,7 @@ function App() {
     },
     passwordInput: {
       padding: '10px',
-      paddingRight: '40px', // Icon ke liye right side par space
+      paddingRight: '40px',
       borderRadius: '5px',
       border: '1px solid #ccc',
       fontSize: '16px',
@@ -107,7 +107,7 @@ function App() {
     submitBtn: {
       flex: 1,
       padding: '12px',
-      backgroundColor: '#007bff', // Proper Blue Color
+      backgroundColor: '#007bff',
       color: 'white',
       border: 'none',
       borderRadius: '5px',
@@ -119,7 +119,7 @@ function App() {
     clearBtn: {
       flex: 1,
       padding: '12px',
-      backgroundColor: '#5a6268', // Proper Dark Grey Color
+      backgroundColor: '#5a6268',
       color: 'white',
       border: 'none',
       borderRadius: '5px',
@@ -188,15 +188,22 @@ function App() {
             Clear Form
           </button>
           <button type="button" style={{ cursor: 'pointer', padding: '10px', background: '#dc3545', color: 'white', border: 'none', borderRadius: '4px' }}>
-  Reset Form
-</button>
+            Reset Form
+          </button>
           <div style={{ marginTop: '10px' }}>
-  <input type="checkbox" id="subscribe" name="subscribe" style={{ marginRight: '5px' }} />
-  <label htmlFor="subscribe">Subscribe to our newsletter</label>
-</div>
+            <input type="checkbox" id="subscribe" name="subscribe" style={{ marginRight: '5px' }} />
+            <label htmlFor="subscribe">Subscribe to our newsletter</label>
+          </div>
         </div>
 
       </form>
+
+      {/* --- DEV2 KA NEW CODE (WARING TEXT) SHURU --- */}
+      <p style={{ marginTop: '25px', textAlign: 'center', color: 'red', fontWeight: 'bold', fontSize: '14px', borderTop: '1px solid #eee', paddingTop: '15px' }}>
+        Warning: Do not share your OTP with anyone!
+      </p>
+      {/* --- DEV2 KA NEW CODE KHATAM --- */}
+
     </div>
   );
 }
