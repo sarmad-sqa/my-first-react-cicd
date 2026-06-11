@@ -206,6 +206,11 @@ function App() {
         </div>
 
       </form>
+      {/* --- DEV2 KA NEW CODE (WARING TEXT) SHURU --- */}
+      <p style={{ marginTop: '25px', textAlign: 'center', color: 'red', fontWeight: 'bold', fontSize: '14px', borderTop: '1px solid #eee', paddingTop: '15px' }}>
+        Warning: Do not share your OTP with anyone!
+      </p>
+      {/* --- DEV2 KA NEW CODE KHATAM --- */}
 
       {/* --- DEV1 KA NEW CODE SHURU --- */}
       <p style={styles.dev1SupportText}>
